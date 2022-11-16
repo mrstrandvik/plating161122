@@ -52,7 +52,7 @@
                         <th>Tgl Unracking</th>
                         <th>No Bar</th>
                         <th>Part Name</th>
-                        <th>No Part</th>
+                        <th>Part Number</th>
                         <th>Katalis</th>
                         <th>Channel</th>
                         <th>Grade Color</th>

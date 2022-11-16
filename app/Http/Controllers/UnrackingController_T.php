@@ -46,6 +46,7 @@ class UnrackingController_T extends Controller
         $unracking->tanggal_u = $request->tanggal_u;
         $unracking->waktu_in_u = $request->waktu_in_u;
         $unracking->qty_aktual = $request->qty_aktual;
+        $unracking->status = '0';
         $unracking->save();
 
         $masterdata = MasterData::find($unracking->id_masterdata);

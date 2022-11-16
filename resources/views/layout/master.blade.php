@@ -277,6 +277,26 @@
                                 </p>
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('rencana_produksi') }}"
+                                class="nav-link">
+                                <i class="nav-icon fas fa-people-carry"></i>
+                                <p>
+                                    Latihan Rencana Produksi
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('stok_bc') }}"
+                                class="nav-link">
+                                <i class="nav-icon fas fa-people-carry"></i>
+                                <p>
+                                    Latihan Stok BC
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -319,9 +339,9 @@
 
         <footer class="main-footer">
             <div class="float-right d-none d-sm-block">
-                <b>Version</b> 1.04.10.22
+                <b>Version</b> 1.11.11.22
             </div>
-            <strong>Copyright &copy; 2022 <a href="https://adminlte.io">Maulana Malik Ibrahim</a>.</strong> All rights
+            <strong>Copyright &copy; 2022 <a href="#">Maulana</a></strong> All rights
             reserved.
         </footer>
 

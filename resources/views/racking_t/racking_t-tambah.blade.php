@@ -51,28 +51,38 @@ is-invalid
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Tanggal Lot Produksi Molding</label>
-                                                <input type="date" name="tgl_lot_prod_mldg" value=""
-                                                    class="@error('tgl_lot_prod_mldg') is-invalid @enderror form-control">
+                                                <input type="date" name="tgl_lot_prod_mldg" value="<?= date('Y-m-d') ?>"
+                                                    class="@error('tgl_lot_prod_mldg')
+is-invalid
+@enderror form-control">
                                                 @error('tgl_lot_prod_mldg')
                                                     <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
                                         </div>
 
-                                        <div class="col-sm-6">
+                                        <div class="col-md-6">
                                             <!-- select -->
                                             <div class="form-group">
-                                                <label>Cycle</label>
+                                                <label>Cycle (Jml Bar = {{ $hit_data_racking }}) </label>
                                                 <select name="cycle"
                                                     class="@error('cycle') is-invalid @enderror form-control">
                                                     @error('cycle')
                                                         <div class="text-danger">{{ $message }}</div>
                                                     @enderror
-                                                    <option value="">----Pilih Cycle----</option>
-                                                    <option>C1</option>
-                                                    <option>C2</option>
-                                                    <option>CS</option>
-                                                    <option>FS</option>
+                                                    @if ($hit_data_racking < 75)
+                                                        <option>C1</option>
+                                                        <option>CS</option>
+                                                        <option>FS</option>
+                                                    @elseif($hit_data_racking > $end_cycle && $hit_data_racking < $fs_val)
+                                                        <option>FS</option>
+                                                    @elseif ($hit_data_racking > $fs_val && $hit_data_racking < $cs_val)
+                                                        <option>CS</option>
+                                                    @elseif ($hit_data_racking > 75)
+                                                        <option>C2</option>
+                                                        <option>CS</option>
+                                                        <option>FS</option>
+                                                    @endif
                                                 </select>
                                             </div>
                                         </div>
@@ -80,7 +90,8 @@ is-invalid
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label> Part Name</label>
-                                                <select class="form-control" style="width: 100%;" name="id_masterdata" id="id_masterdata" >
+                                                <select class="form-control" style="width: 100%;" name="id_masterdata"
+                                                    id="id_masterdata">
                                                     <option value="" hidden>--Pilih Barang--</option>
                                                     @foreach ($masterdata as $d)
                                                         <option value="{{ $d->id }}">{{ $d->part_name }}
